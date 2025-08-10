@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 .text-2p {
   font-family: "Press Start 2P", system-ui;
@@ -81,7 +82,7 @@
 
   .dark {
     --background: 0 0% 0%;
-    --foreground: 0 0% 13.2%;
+    --foreground: 0 0% 100%;
     --card: 0 0% 20.9%;
     --primary: 166 100% 63.3%;
     --primary-foreground: 185 100% 76.5%;

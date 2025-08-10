@@ -26,6 +26,8 @@ export const ThemeToggle = () => {
     }
   };
   return (
-    <button onClick={toggleTheme}>{isDarkMode ? <Sun /> : <Moon />}</button>
+    <button onClick={toggleTheme}>
+      {isDarkMode ? <Sun color="yellow" /> : <Moon color="blue" />}
+    </button>
   );
 };

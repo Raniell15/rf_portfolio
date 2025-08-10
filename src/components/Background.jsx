@@ -41,7 +41,15 @@ export const Background = () => {
   useEffect(() => {
     generateChars();
     generateMeteors();
-  }, [generateChars, generateMeteors]);
+
+    const handleResize = () => {
+      generateChars();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
