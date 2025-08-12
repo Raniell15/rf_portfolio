@@ -7,11 +7,25 @@
   font-style: normal;
 }
 
+.text-silk {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-silk-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  --color-primary: hsl(var(--primary));
+  --color-app-primary: var(--primary);
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-card: hsl(var(--card));
 
@@ -75,7 +89,7 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 81.3%;
     --card: 0 0 100%;
-    --primary: 166 100% 63.3%;
+    --primary: #44ffd2;
     --primary-foreground: 185 100% 76.5%;
     --border: 20 100% 81.4%;
   }
@@ -84,7 +98,7 @@
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
     --card: 0 0% 20.9%;
-    --primary: 166 100% 63.3%;
+    --primary: #44ffd2;
     --primary-foreground: 185 100% 76.5%;
     --border: 20 100% 81.4%;
   }

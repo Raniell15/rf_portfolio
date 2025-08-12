@@ -23,9 +23,10 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <nav
-      className={`flex w-full items-center justify-between p-4 fixed z-40 transition-all duration-300 ${
+      className={`flex w-full items-center justify-between p-4 fixed z-20 transition-all duration-300 ${
         isScrolled ? " bg-background/80 backdrop-blur-md shadow-xs" : ""
       }`}
     >
@@ -36,7 +37,7 @@ export const Navbar = () => {
           <a
             key={key}
             href={item.href}
-            className="uppercase text-foreground hover:text-primary"
+            className="uppercase text-foreground hover:text-app-primary"
             onClick={() => setIsMenuOpen(false)}
           >
             {item.name}

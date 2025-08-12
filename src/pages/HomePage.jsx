@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Background } from "../components/Background";
 import { Hero } from "../components/Hero";
 import { About } from "../components/About";
+import { Skills } from "../components/Skills";
 
 export const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ export const HomePage = () => {
       <main>
         <Hero />
         <About/>
+        <Skills/>
       </main>
     </div>
   );
