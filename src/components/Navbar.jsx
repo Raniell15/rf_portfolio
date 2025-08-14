@@ -30,7 +30,7 @@ export const Navbar = () => {
         isScrolled ? " bg-background/80 backdrop-blur-md shadow-xs" : ""
       }`}
     >
-      <img src="../../LOGO.svg" alt="Logo" className="h-10" />
+      <a href="#home"><img src="../../LOGO.svg" alt="Logo" className="h-10" /></a>
       {/*desktop nav*/}
       <div className="hidden space-x-6 items-center  text-2p  md:block md:flex ">
         {navItems.map((item, key) => (

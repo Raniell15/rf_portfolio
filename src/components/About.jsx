@@ -10,8 +10,8 @@ export const About = () => {
     console.log(window.scrollY)
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 600);
-      setIsScrolled2(scrollPosition > 300);
+      setIsScrolled(scrollPosition > 950);
+      setIsScrolled2(scrollPosition > 350);
     }
 
     window.addEventListener('scroll', handleScroll);
@@ -23,9 +23,9 @@ export const About = () => {
   }, [])
 
   return (
-    <section id="about" className='flex flex-col min-h-screen max-w-screen items-center justify-center z-10 space-y-20 mt-10'>
+    <section id="about" className='flex flex-col min-h-screen max-w-screen items-center justify-center z-10 space-y-20 mt-20'>
         {/*About Me*/}
-        <h2 className={`text-2p text-2xl opacity-0 ${isScrolled2 ? 'animate-fade-in' : ''}`}>About <span className='text-app-primary'>Me</span></h2>
+        <h2 className={`text-2p text-3xl opacity-0 md:text-4xl ${isScrolled2 ? 'animate-fade-in' : ''}`}>About <span className='text-app-primary'>Me</span></h2>
         <div className='flex items-center justify-center space-x-10'>
             <div className={`rounded-md overflow-hidden opacity-0 ${isScrolled2 ? 'animate-fade-in-delay-1' : ''}`}><Carousel/></div>
             <div className={` space-y-6 `}>
@@ -43,8 +43,9 @@ export const About = () => {
             </div>
         </div>
         {/*Skill Cards*/}
+        <span className={`text-2p text-3xl opacity-0 mt-10 md:text-4xl ${isScrolled ? 'animate-fade-in-delay-1' : ''}`}>Overview</span>
         <div className='flex space-x-15'>
-          <div className={`opacity-0 flex flex-col items-center justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${isScrolled ? 'animate-fade-in-delay-1' : ''}`}>
+          <div className={`opacity-0 flex flex-col items-center card-hover justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${isScrolled ? 'animate-fade-in-delay-1' : ''}`}>
             <div className='rounded-lg w-fit space-x-3 flex p-3 bg-gray-950 text-app-primary'>
               <CodeXml  />
               <span className='text-2p'>Programming</span>
@@ -54,7 +55,7 @@ export const About = () => {
               Pellentesque vulputate nisi a lacus rutrum, sed porta est tincidunt. Mauris tempor ante quis ligula gravida, 
             </p>
           </div>
-            <div className={`opacity-0 flex flex-col items-center justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${isScrolled ? 'animate-fade-in-delay-2' : ''}`}>
+            <div className={`opacity-0 flex flex-col items-center card-hover justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${isScrolled ? 'animate-fade-in-delay-2' : ''}`}>
             <div className='rounded-lg w-fit space-x-3 flex p-3 bg-gray-950 text-app-primary'>
               <Cpu  />
               <span className='text-2p'>Hardware</span>
@@ -64,7 +65,7 @@ export const About = () => {
               Pellentesque vulputate nisi a lacus rutrum, sed porta est tincidunt. Mauris tempor ante quis ligula gravida, 
             </p>
           </div>
-                    <div className={`opacity-0 flex flex-col items-center justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${isScrolled ? 'animate-fade-in-delay-3' : ''}`}>
+                    <div className={`opacity-0 flex flex-col items-center card-hover justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${isScrolled ? 'animate-fade-in-delay-3' : ''}`}>
             <div className='rounded-lg w-fit space-x-3 flex p-3 bg-gray-950 text-app-primary'>
               <Blocks  />
               <span className='text-2p'>Learner</span>
