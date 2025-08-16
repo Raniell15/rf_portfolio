@@ -53,8 +53,13 @@ export const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const handleCategory = (category) => {
+    setActiveCategory(category);
+    localStorage.setItem('category', category);
+  }
+
     useEffect(() => {
-      console.log(window.scrollY)
+      localStorage.setItem('category', 'all');
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
         setIsScrolled(scrollPosition > 1550);
@@ -74,10 +79,10 @@ export const Skills = () => {
           My <span className='text-app-primary'>Skills</span>
         </h2>
         <div className='flex justify-center gap-6 py-10'>
-            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-1' : ''} ${activeCategory === 'all' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => setActiveCategory('all')}>All</button>
-            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-2' : ''} ${activeCategory === 'software' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => setActiveCategory('software')}>Software</button>
-            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-3' : ''} ${activeCategory === 'hardware' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => setActiveCategory('hardware')}>Hardware</button>
-            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-4' : ''} ${activeCategory === 'tool' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => setActiveCategory('tool')}>Tools</button>
+            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-1' : ''} ${activeCategory === 'all' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('all')}>All</button>
+            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-2' : ''} ${activeCategory === 'software' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('software')}>Software</button>
+            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-3' : ''} ${activeCategory === 'hardware' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('hardware')}>Hardware</button>
+            <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-4' : ''} ${activeCategory === 'tool' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('tool')}>Tools</button>
           </div>
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 opacity-0 ${isScrolled ? 'animate-fade-in-delay-5' : ''}`}>
           {skills.filter(skill => activeCategory === 'all' || skill.category === activeCategory).map((skill, key) => (

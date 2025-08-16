@@ -6,10 +6,11 @@ import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import { Skills } from "../components/Skills";
 import { Works } from "../components/Works";
+import { Contact } from "../components/Contact";
 
 export const HomePage = () => {
   return (
-    <div id="home" className=" max-w-screen">
+    <div id="home" className="max-w-screen">
       <Navbar />
       <Background />
       <main>
@@ -17,6 +18,7 @@ export const HomePage = () => {
         <About/>
         <Skills/>
         <Works/>
+        <Contact/>
       </main>
     </div>
   );

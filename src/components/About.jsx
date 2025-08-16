@@ -7,7 +7,6 @@ export const About = () => {
   const [isScrolled2, setIsScrolled2] = useState(false);
 
   useEffect(() => {
-    console.log(window.scrollY)
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 950);

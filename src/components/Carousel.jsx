@@ -20,7 +20,7 @@ export const Carousel = () => {
   });
 
   return (
-    <div className={`flex items-center h-120  overflow-hidden w-160`}>
+    <div className={`flex items-center h-120 overflow-hidden w-160`}>
       <div
         className="flex max-w-screen transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${activeImg * 100}%)` }}

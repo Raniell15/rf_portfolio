@@ -16,9 +16,9 @@ export const WorkCarousel = ({image}) => {
   });
 
   return (
-    <div className={`flex items-center h-100  overflow-hidden w-150`}>
+    <div className={`flex items-center h-auto overflow-hidden w-auto`}>
       <div
-        className="flex max-w-screen transition-transform duration-500 ease-in-out"
+        className="flex transition-transform duration-750 ease-in-out delay-200"
         style={{ transform: `translateX(-${activeImg * 100}%)` }}
       >
         {images.map((image) => (
