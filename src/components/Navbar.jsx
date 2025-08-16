@@ -26,11 +26,13 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`flex w-full items-center justify-between p-4 fixed z-20 transition-all duration-300 ${
+      className={`flex w-screen items-center justify-between p-4 fixed z-20 transition-all duration-300 ${
         isScrolled ? " bg-background/80 backdrop-blur-md shadow-xs" : ""
       }`}
     >
-      <a href="#home"><img src="../../LOGO.svg" alt="Logo" className="h-10" /></a>
+      <a href="#home">
+        <img src="../../LOGO.svg" alt="Logo" className="h-10" />
+      </a>
       {/*desktop nav*/}
       <div className="hidden space-x-6 items-center  text-2p  md:block md:flex ">
         {navItems.map((item, key) => (

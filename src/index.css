@@ -19,7 +19,13 @@
   font-style: normal;
 }
 
+.app-input {
+  @apply border-2 border-app-primary p-2 rounded-md;
+}
 
+.app-input:focus {
+  @apply border-app-primary;
+}
 
 @theme {
   --color-border: hsl(var(--border));
