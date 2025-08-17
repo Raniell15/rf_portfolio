@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { WorkCarousel } from "./WorkCarousel";
-import { Github, Link } from "lucide-react";
+import { Github, GitPullRequestClosed, Link, Link2, Link2Off } from "lucide-react";
 
 const projects = [
   {
@@ -124,11 +124,11 @@ export const Works = () => {
               </h2>
               <p className="text-silk text-sm px-4">{project.description}</p>
               <div className="flex p-4 space-x-2">
-                <a href={project.demoUrl}>
-                  <Link />
+                <a className={project.demoUrl === "#" ? "pointer-events-none" : "pointer-events-auto"} target="_blank" href={project.demoUrl}>
+                  {project.demoUrl === "#" ? (<Link2Off/>) : (<Link2/>)}
                 </a>
-                <a href={project.githubUrl}>
-                  <Github />
+                <a className={project.githubUrl === "#" ? "pointer-events-none" : "pointer-events-auto"} target="_blank" href={project.githubUrl}>
+                  {project.githubUrl === "#" ? (<GitPullRequestClosed/>) : (<Github/>)}
                 </a>
               </div>
             </div>
