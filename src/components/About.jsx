@@ -64,7 +64,7 @@ export const About = () => {
             >
               Get In Touch
             </a>
-            <a
+            <a href="../../Raniell_Fontiveros_CV_2025.pdf" download={'Raniell_Fontiveros_CV_2025.pdf'}
               className={`border-2 border-solid border-app-primary p-3 px-4 text-silk rounded-full opacity-0  hover:bg-app-primary cursor-pointer ${
                 isScrolled2 ? "animate-fade-in-delay-4" : ""
               }`}
