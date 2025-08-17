@@ -7,8 +7,9 @@ const projects = [
     id: 1,
     title: "ScanTooth",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a accumsan risus, ut lobortis magna.",
-    image: ["../../projects/SCANTOOTH.png", "../../projects/SCANTOOTH2.png"],
+      "ScanTooth is a device powered by a Raspberry Pi. It captures pictures of teeth and analyzes it using a Object Detection Model " +
+      "to predict if a tooth has caries.",
+    image: ["../../projects/SCANTOOTH.png", "../../projects/SCANTOOTH2.png", "../../projects/SCANTOOTH3.jpg", "../../projects/SCANTOOTH4.jpg", "../../projects/SCANTOOTH5.jpg",],
     tags: [
       "Python",
       "Tensorflow",
@@ -26,8 +27,8 @@ const projects = [
     id: 2,
     title: "RFChat",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a accumsan risus, ut lobortis magna.",
-    image: ["../../projects/RFCHAT.png", "../../projects/RFCHAT2.png"],
+      "RFChat is a real-time chat application, made using the MERN stack",
+    image: ["../../projects/RFCHAT.png", "../../projects/RFCHAT2.png", "../../projects/RFCHAT3.png", "../../projects/RFCHAT4.png", "../../projects/RFCHAT5.png",],
     tags: [
       "ReactJS",
       "Tailwind CSS",
@@ -45,7 +46,8 @@ const projects = [
     id: 3,
     title: "NexPos API",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a accumsan risus, ut lobortis magna.",
+      "The NexPos API is the API for NexBridge Technologies Inc. in-house business dashboard. " +
+      "It allows businesses to track Inventory, manage locations, and generate finance reports",
     image: ["../../projects/NEXPOS.png", "../../projects/NEXPOS2.png"],
     tags: ["Laravel Lumen", "PHP", "Postman", "VSCode", "Git/GitHub", "SQL"],
     demoUrl: "#",
@@ -63,13 +65,13 @@ export const Works = () => {
       const scrollPosition = window.scrollY;
       const category = localStorage.getItem("category");
       if (category === "all") {
-        setIsScrolled(scrollPosition > 3700);
+        setIsScrolled(scrollPosition > 3500);
       } else if (category === "software") {
-        setIsScrolled(scrollPosition > 3100);
+        setIsScrolled(scrollPosition > 2900);
       } else if (category === "hardware") {
-        setIsScrolled(scrollPosition > 2600);
+        setIsScrolled(scrollPosition > 2400);
       } else {
-        setIsScrolled(scrollPosition > 2300);
+        setIsScrolled(scrollPosition > 1900);
       }
     };
 
@@ -83,7 +85,7 @@ export const Works = () => {
   return (
     <section
       id="work"
-      className="flex flex-col items-center py-24 justify-center min-h-screen space-y-10"
+      className="flex flex-col items-center p-16 justify-center min-h-screen space-y-10"
     >
       <h2
         className={`text-2p text-3xl opacity-0 md:text-4xl  ${
@@ -92,10 +94,10 @@ export const Works = () => {
       >
         My <span className="text-app-primary">Works</span>
       </h2>
-      <ul className="timeline timeline-vertical">
+      <ul className="space-y-10 md:space-y-0 md:timeline md:timeline-vertical">
         {projects.map((project) => (
           <li key={project.id}>
-            {project.id != 1 && <hr />}
+            {project.id != 1 && <hr className="hidden md:block"/>}
             <div
               className={`timeline-box overflow-hidden space-y-4 max-w-100 md:max-w-150 card-hover opacity-0 ${
                 isScrolled
@@ -130,7 +132,7 @@ export const Works = () => {
                 </a>
               </div>
             </div>
-            {project.id != projects.length && <hr />}
+            {project.id != projects.length && <hr className="hidden md:block"/>}
           </li>
         ))}
       </ul>

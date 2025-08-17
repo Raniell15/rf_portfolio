@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 
 export const Carousel = () => {
   const images = [
-    { src: "../../tmp.jpg", alt: "Image 1" },
-    { src: "../../tmp2.jpg", alt: "Image 2" },
-    { src: "../../tmp3.jpg", alt: "Image 3" },
+    { src: "../../carousel1.jpg", alt: "Image 1" },
+    { src: "../../carousel2.jpg", alt: "Image 2" },
+    { src: "../../carousel3.jpg", alt: "Image 3" },
   ];
 
   const [activeImg, setActiveImg] = useState(0);
@@ -20,7 +20,7 @@ export const Carousel = () => {
   });
 
   return (
-    <div className={`flex items-center h-120 overflow-hidden w-160`}>
+    <div className={`flex items-center h-120 overflow-hidden w-100 md:w-160`}>
       <div
         className="flex max-w-screen transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${activeImg * 100}%)` }}
@@ -30,7 +30,7 @@ export const Carousel = () => {
             key={image.src}
             src={image.src}
             alt={image.alt}
-            className="h-120 w-200 object-cover"
+            className=" object-cover"
           />
         ))}
       </div>

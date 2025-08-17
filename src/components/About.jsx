@@ -23,7 +23,7 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col min-h-screen max-w-screen items-center justify-center z-10 space-y-20 mt-20"
+      className="flex flex-col min-h-screen max-w-screen items-center justify-center z-10 md:space-y-20 mt-20"
     >
       {/*About Me*/}
       <h2
@@ -33,7 +33,7 @@ export const About = () => {
       >
         About <span className="text-app-primary">Me</span>
       </h2>
-      <div className="flex flex-col xl:flex-row items-center justify-center space-x-10">
+      <div className="flex flex-col xl:flex-row items-center justify-center md:space-x-10">
         <div
           className={`rounded-md overflow-hidden opacity-0 ${
             isScrolled2 ? "animate-fade-in-delay-1" : ""
@@ -43,7 +43,7 @@ export const About = () => {
         </div>
         <div className={` space-y-6 `}>
           <p
-            className={`flex opacity-0 flex-col text-2p text-justify w-125 ${
+            className={`flex opacity-0 flex-col text-2p text-justify w-90 md:w-125  ${
               isScrolled2 ? "animate-fade-in-delay-2" : ""
             }`}
           >
@@ -76,13 +76,14 @@ export const About = () => {
       </div>
       {/*Skill Cards*/}
       <span
-        className={`text-2p text-3xl opacity-0 mt-10 md:text-4xl ${
+        className={`text-2p text-3xl opacity-0 mt-20 md:mt-10 mb-10 md:text-4xl ${
           isScrolled ? "animate-fade-in-delay-1" : ""
         }`}
       >
         Overview
       </span>
-      <div className="flex flex-col lg:flex-row space-x-15">
+      <div className="flex flex-col items-center justify-center space-y-8 md:space-y-0 lg:flex-row md:space-x-15">
+
         <div
           className={`opacity-0 flex flex-col items-center card-hover justify-center rounded-lg bg-gray-900 min-h-50 max-w-100 p-5 space-y-3 ${
             isScrolled ? "animate-fade-in-delay-1" : ""
@@ -93,10 +94,9 @@ export const About = () => {
             <span className="text-2p">Programming</span>
           </div>
           <p className="text-justify text-2p text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-            accumsan risus, ut lobortis magna. Pellentesque vulputate nisi a
-            lacus rutrum, sed porta est tincidunt. Mauris tempor ante quis
-            ligula gravida,
+            As a Computer Engineer, I have grasped key programming concepts like data types and OOP; 
+            allowing me to be a versatile programmer. These concepts has allowed me to learn
+            multiple programming languages both high and low level. 
           </p>
         </div>
         <div
@@ -109,10 +109,10 @@ export const About = () => {
             <span className="text-2p">Hardware</span>
           </div>
           <p className="text-justify text-2p text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-            accumsan risus, ut lobortis magna. Pellentesque vulputate nisi a
-            lacus rutrum, sed porta est tincidunt. Mauris tempor ante quis
-            ligula gravida,
+            Essential to being a Computer Engineer is learning the how a Computer functions; from its components
+            to its operating system. From basic electronic components, to Gate-level Modeling, slowly building up
+            to a CPU and Its instruction set.
+            
           </p>
         </div>
         <div
@@ -125,10 +125,9 @@ export const About = () => {
             <span className="text-2p">Learner</span>
           </div>
           <p className="text-justify text-2p text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-            accumsan risus, ut lobortis magna. Pellentesque vulputate nisi a
-            lacus rutrum, sed porta est tincidunt. Mauris tempor ante quis
-            ligula gravida,
+            The most essential realization I have had as my time as a student, is that every day is an
+            opportunity to learn. This mindset has shaped me and allowed me to finish my studies. I aim to continue
+            building upon my knowledge and skills, as a passionate learner.
           </p>
         </div>
       </div>

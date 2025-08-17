@@ -25,7 +25,7 @@ export const WorkCarousel = ({image}) => {
           <img
             key={image}
             src={image}
-            className="object-cover"
+            className="object-fill"
           />
         ))}
       </div>

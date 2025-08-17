@@ -34,7 +34,7 @@ export const Navbar = () => {
         <img src="../../LOGO.svg" alt="Logo" className="h-10" />
       </a>
       {/*desktop nav*/}
-      <div className="hidden space-x-6 items-center  text-2p  md:block md:flex ">
+      <div className="hidden justify-center space-x-6 items-center  text-2p  md:flex ">
         {navItems.map((item, key) => (
           <a
             key={key}
@@ -56,18 +56,18 @@ export const Navbar = () => {
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
       <div
-        className={`fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden ${
+        className={`fixed h-screen inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden ${
           isMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col text-xl space-y-4">
+        <div className=" flex flex-col text-xl space-y-4">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="uppercase text-foreground hover:text-primary"
+              className="uppercase text-2p text-foreground hover:text-app-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}

@@ -73,12 +73,12 @@ export const Skills = () => {
     }, [])
 
   return (
-    <section id="skills" className='mt-20 py-24 px-4 relative'>
+    <section id="skills" className=' py-24 px-4 relative'>
       <div className='container mx-auto max-w-5xl'>
         <h2 className={`text-3xl md:text-4xl mb-5 text-center text-2p opacity-0 ${isScrolled ? 'animate-fade-in' : ''}`}>
           My <span className='text-app-primary'>Skills</span>
         </h2>
-        <div className='flex justify-center gap-6 py-10'>
+        <div className='flex justify-center md:gap-6 py-10'>
             <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-1' : ''} ${activeCategory === 'all' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('all')}>All</button>
             <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-2' : ''} ${activeCategory === 'software' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('software')}>Software</button>
             <button className={`text-silk text-lg hover:bg-app-primary/80 px-3 py-1 rounded-full opacity-0 ${isScrolled ? 'animate-fade-in-delay-3' : ''} ${activeCategory === 'hardware' ? 'border-app-primary border-solid border-2' : ''}`} onClick={() => handleCategory('hardware')}>Hardware</button>
