@@ -5,17 +5,17 @@ export const ThemeToggle = () => {
   const [isLightMode, setIsLightMode] = useState(false);
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.remove("light");
-      setIsLightMode(false);
-    } else {
+    if (savedTheme === "light") {
       document.documentElement.classList.add("light");
       setIsLightMode(true);
+    } else {
+      document.documentElement.classList.remove("light");
+      setIsLightMode(false);
     }
   }, []);
 
   const toggleTheme = () => {
-    if (isLightMode) {
+    if (!isLightMode) {
       document.documentElement.classList.add("light");
       localStorage.setItem("theme", "light");
       setIsLightMode(true);
