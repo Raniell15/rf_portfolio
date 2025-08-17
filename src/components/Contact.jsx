@@ -2,39 +2,45 @@ import { Facebook, Instagram, Linkedin, Loader2, Mail, Phone, Send } from "lucid
 import React, {useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
-
 export const Contact = () => {
-
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [result, setResult] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    
+    
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const formData = new FormData(e.target);
-      formData.append("access_key", "6161c383-be87-4b0a-9eaa-e7704ae3b975");
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
+      try {
+        const response = await fetch('https://formspree.io/f/mqalopvq', {
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json',
+          },
+          body: JSON.stringify({name, email, message})
+        })
 
-      const data = await response.json();
-
-      if (data.success) {
-        setResult("Form Submitted Successfully");
-        e.target.reset();
-      } else {
-        console.log("Error", data);
-        toast.error("Error: Message not sent.")
-        setResult(data.message);
+        if (response.ok) {
+          setTimeout(() => {
+            setName('');
+            setEmail('');
+            setMessage('');
+            toast.success("Message Sent!");
+            
+            setIsSubmitting(false);
+          }, 1500)
+        } else {
+          console.log('Form submission failed')
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error)
       }
 
       setIsSubmitting(true);
-      setTimeout(() => {
-        toast.success("Message Sent!");
-        setIsSubmitting(false);
-      }, 1500)
+
       
     }
   
@@ -114,12 +120,14 @@ export const Contact = () => {
         <div  className={`flex flex-col bg-gray-800 p-13 rounded-lg space-y-4 opacity-0 ${isScrolled ? "animate-fade-in-delay-3" : ""}`}>
           <h2 className="text-2p text-lg">Send a Message</h2>
           <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
-            <input type="hidden" name="access_key" value="6161c383-be87-4b0a-9eaa-e7704ae3b975"></input>
             <div className="flex flex-col text-silk">
               <label htmlFor="name" className="text-lg">Your Name</label>
               <input
+                id="name"
                 className="app-input"
                 placeholder="John Doe"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 name="name"
                 required
@@ -128,8 +136,11 @@ export const Contact = () => {
             <div className="flex flex-col text-silk">
               <label htmlFor="email" className="text-lg">Your Email</label>
               <input
+                id="email"
                 className="app-input"
                 placeholder="john@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
                 required
@@ -138,14 +149,17 @@ export const Contact = () => {
             <div className="flex flex-col text-silk">
               <label htmlFor="message" className="text-lg">Your Message</label>
               <textarea
+                id="message"
                 className="app-input"
                 placeholder="Hey! I saw your portfolio..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 type="text"
                 name="message"
                 required
               />
             </div>
-            <button className={`flex app-btn text-silk-bold text-lg items-center justify-center rounded-full bg-app-primary/80 p-2`} disabled={isSubmitting}>{
+            <button type="submit" className={`flex app-btn text-silk-bold text-lg items-center justify-center rounded-full bg-app-primary/80 p-2`} disabled={isSubmitting}>{
               isSubmitting ? (<div className="flex items-center space-x-3"><span>Sending Message </span> <Loader2 className="animate-spin" size={20}/></div>) : (<div className="flex items-center space-x-3"><span>Send Message</span> <Send size={20}/></div>)
             }</button>
           </form>
