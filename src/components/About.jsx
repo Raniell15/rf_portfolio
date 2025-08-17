@@ -58,7 +58,7 @@ export const About = () => {
           </p>
           <div className="flex justify-evenly">
             <a
-              className={`bg-app-primary/80 text-silk  p-3 px-4 rounded-full opacity-0 hover:bg-primary-foreground cursor-pointer  ${
+               href="#contact" className={`bg-app-primary/80 text-silk  p-3 px-4 rounded-full opacity-0 hover:bg-primary-foreground cursor-pointer  ${
                 isScrolled2 ? "animate-fade-in-delay-3" : ""
               }`}
             >

@@ -7,9 +7,28 @@ export const Contact = () => {
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [result, setResult] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
+      const formData = new FormData(e.target);
+      formData.append("access_key", "6161c383-be87-4b0a-9eaa-e7704ae3b975");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        e.target.reset();
+      } else {
+        console.log("Error", data);
+        toast.error("Error: Message not sent.")
+        setResult(data.message);
+      }
 
       setIsSubmitting(true);
       setTimeout(() => {
@@ -94,14 +113,16 @@ export const Contact = () => {
         </div>
         <div  className={`flex flex-col bg-gray-800 p-13 rounded-lg space-y-4 opacity-0 ${isScrolled ? "animate-fade-in-delay-3" : ""}`}>
           <h2 className="text-2p text-lg">Send a Message</h2>
-          <form action="" onSubmit={handleSubmit} className="flex flex-col space-y-6">
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
+            <input type="hidden" name="access_key" value="6161c383-be87-4b0a-9eaa-e7704ae3b975"></input>
             <div className="flex flex-col text-silk">
               <label htmlFor="name" className="text-lg">Your Name</label>
               <input
                 className="app-input"
                 placeholder="John Doe"
                 type="text"
-                id="name"
+                name="name"
+                required
               />
             </div>
             <div className="flex flex-col text-silk">
@@ -109,8 +130,9 @@ export const Contact = () => {
               <input
                 className="app-input"
                 placeholder="john@gmail.com"
-                type="text"
-                id="email"
+                type="email"
+                name="email"
+                required
               />
             </div>
             <div className="flex flex-col text-silk">
@@ -119,7 +141,8 @@ export const Contact = () => {
                 className="app-input"
                 placeholder="Hey! I saw your portfolio..."
                 type="text"
-                id="message"
+                name="message"
+                required
               />
             </div>
             <button className={`flex app-btn text-silk-bold text-lg items-center justify-center rounded-full bg-app-primary/80 p-2`} disabled={isSubmitting}>{
